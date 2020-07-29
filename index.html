@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <title>Time Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron my-4">
+        <h1 class="display-4">Current Time Is: <span id="time"></span></h1>
+        <h1 class="display-4">Current Date Is: <span id="date"></span></h1>
+        <p class="lead">
+          This is the time in India (GMT+5.5)
+        </p>
+        <hr class="my-4" />
+        <p>Click below to know the time of different countries</p>
+        <a class="btn btn-primary btn-lg" href="https://24timezones.com/#/map" target="_blank" role="button">Browse Times</a>
+      </div>
+    </div>
+
+    <script>
+      let a;
+      let time;
+      let date;
+      const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+      setInterval(() => {
+        a = new Date();
+        time = a.getHours() + ":" + a.getMinutes() + ":" + a.getSeconds() + "s";
+        date = a.toLocaleString(undefined, options);
+        document.getElementById("time").innerHTML = time;
+        document.getElementById("date").innerHTML = date;
+      }, 1000);
+    </script>
+  </body>
+</html>
